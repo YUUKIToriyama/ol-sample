@@ -1,3 +1,5 @@
+var proj4326 = 'EPSG:4326', proj3857 = 'EPSG:3857';
+
 var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
@@ -5,13 +7,11 @@ var map = new ol.Map({
     })
   ],
   target: 'map',
-  //controls: ol.control.defaults({
-  //  attributionOptions: ({
-  //    collapsible: false
-  //  })
-  //}),
   view: new ol.View({
-    center: [0, 0],
-    zoom: 2
+    center: ol.proj.transform([135, 34.69], proj4326, proj3857),
+    zoom: 12
   })
 });
+
+zoomslider = new ol.control.ZoomSlider();
+map.addControl(zoomslider);
