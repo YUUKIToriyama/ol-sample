@@ -29,3 +29,20 @@ questSlide.addEventListener('input', function (e) {
   mapQLayer.setOpacity(this.value);
 });
 
+var osmOnOff   = document.getElementById('osm-vis');
+osmOnOff.addEventListener('click', function (e) {
+  if (osmLayer.getVisible()) {
+    osmLayer.setVisible(false);
+  } else {
+    osmLayer.setVisible(true);
+  }
+});
+
+var questOnOff = document.getElementById('mapquest-vis');
+questOnOff.addEventListener('click', function (e) {
+  if (mapQLayer.getVisible()) {
+    mapQLayer.setVisible(false);
+  } else {
+    mapQLayer.setVisible(true);
+  }
+});
