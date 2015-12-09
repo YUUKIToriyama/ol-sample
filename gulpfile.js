@@ -8,21 +8,22 @@ gulp.task('serve', function (done) {
     open: false,
     port: 9000,
     server: {
-      baseDir: ['.'],
+      baseDir: ['./sample'],
       middleware: function (req, res, next) {
-        res.setHeater('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         next();
       }
     }
   }, done);
 });
 
+
 gulp.task('watch', ['serve'], function () {
 
   watch([
-    './sample/**/.html',
-    './sample/**/js/*.js',
-    './sample/**/css/*.css'
+    './sample/**/*.html',
+    './sample/**/*.js',
+    './sample/**/*.css'
   ], browserSync.reload);
 
 });
