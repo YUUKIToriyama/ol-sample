@@ -4,10 +4,11 @@ var map = new ol.Map({ target: 'map'});
 var osmSource = new ol.source.OSM();
 var osmLayer = new ol.layer.Tile({ source: osmSource });
 
-map.setView(new ol.View({
+var view = new ol.View({
   center: [0, 0],
   zoom: 2
-}));
+});
+map.setView(view);
 
 map.addLayer(osmLayer);
 
@@ -75,6 +76,10 @@ draw.addEventListener('click', function (e) {
 
   // Sourceセット
   vectorLayer.setSource(vectorSource);
+
+  //var pan = ol.animation.pan({ duration: 0, source: view.getCenter() });
+  //map.beforeRender(pan);
+  view.setCenter(ol.proj.fromLonLat([36000, 50]));
 });
 
 remove.addEventListener('click', function (e) {
