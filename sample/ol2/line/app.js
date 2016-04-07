@@ -75,7 +75,7 @@
      * 投影法の変換
      * @param {Object} lonlat
      */
-    transformPoint(lonlat) {
+    transformPoint: function (lonlat) {
       return lonlat.transform(this.proj4326, this.olmap.getProjectionObject());
     },
 
@@ -84,14 +84,14 @@
      * @param {Number} lon
      * @param {Number} lat
      */
-    createPoint(lon, lat) {
+    createPoint: function (lon, lat) {
       return new OpenLayers.Geometry.Point(lon, lat);
     },
 
     /**
      * レイヤ−削除
      */
-    removeLayer() {
+    removeLayer: function () {
       var layers = this.olmap.getLayersByName('point_layer')
                     .concat(this.olmap.getLayersByName('line_layer'));
 
@@ -104,7 +104,7 @@
     /**
      * 線を描画する
      */
-    plot() {
+    plot: function () {
       var points = [];
       var line_data = [];
 
