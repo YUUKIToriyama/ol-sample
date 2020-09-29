@@ -13,7 +13,7 @@ var osmSlide   = document.getElementById('osm-slide');
 var osmOpacity = document.getElementById('osm-opacity');
 osmSlide.addEventListener('input', function (e) {
   osmOpacity.innerHTML = this.value;
-  osmLayer.setOpacity(this.value);
+  osmLayer.setOpacity(parseFloat(this.value));
 });
 
 var osmOnOff   = document.getElementById('osm-vis');
